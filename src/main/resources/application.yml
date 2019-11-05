@@ -1,0 +1,26 @@
+spring:
+  profiles:
+    active: local
+
+#로컬 프로파일
+---
+server:
+  port: 19301
+  servlet:
+    session:
+      timeout: 86400s
+spring:
+  profiles: local
+  thymeleaf:
+    cache: false
+  devtools:
+    livereload:
+      enabled: true
+  datasource:
+    driver-class-name: org.h2.Driver
+    url: jdbc:h2:mem:db;DB_CLOSE_DELAY=-1
+    username: testAdmin
+    password: testPassword
+    hibernate:
+      ddl-auto: update
+    show-sql: true

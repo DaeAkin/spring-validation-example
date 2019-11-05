@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+
+<body id="page-top">
+<div id="wrapper">
+    <div id="content-wrapper">
+        <div class="container-fluid">
+            <div class="container p-5">
+                <form>
+                    <div class="alert alert-primary" role="alert">
+                        회원가입
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">이메일</label>
+                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                        <small id="emailHelp" class="form-text text-muted">이메일을 입력해주세요!</small>
+                    </div>
+                    <div class="form-group">
+                        <label for="phoneNumber">휴대폰번호</label>
+                        <input type="text" class="form-control" id="phoneNumber" name="phoneNumber" placeholder="Phone Number">
+                    </div>
+                    <button type="button" id="saveButton" class="btn btn-primary">회원가입</button>
+                </form>
+            </div>
+
+        </div>
+        <!-- /.container-fluid -->
+    </div>
+    <!-- /.content-wrapper -->
+
+</div>
+<!-- /#wrapper -->
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<script>
+
+    $('#saveButton').click(function () {
+            var data = {
+                phoneNumber: $('#phoneNumber').val(),
+                email: $('#email').val()
+            };
+            $.ajax({
+                url:'/api/member',
+                method: 'POST',
+                data: JSON.stringify(data),
+                contentType: "application/json; charset=utf-8",
+                success: function (response) {
+                    alert("회원가입 성공");
+                }
+            });
+        });
+</script>
+
+<div th:include="common/js :: js"></div>
+</body>
+
+
+</html>

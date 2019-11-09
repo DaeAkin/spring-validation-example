@@ -4,10 +4,7 @@ import com.validation.validationdemo.member.MemberRepository;
 import com.validation.validationdemo.member.MemberSaveRequest;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 
@@ -25,6 +22,5 @@ public class MemberRestController {
         log.info("insertMember {} " , memberSaveRequest.toString());
         memberRepository.save(memberSaveRequest.toEntity());
     }
-
 
 }

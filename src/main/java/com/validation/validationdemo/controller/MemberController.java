@@ -21,10 +21,8 @@ public class MemberController {
 
     @GetMapping("/join")
     public String moveToMemberJoinViewPage(Model model) {
-
         List<Member> memberList = (List<Member>) memberRepository.findAll();
         model.addAttribute("memberList", memberList);
-
         return "member_join";
     }
 }
